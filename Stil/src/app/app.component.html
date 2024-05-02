@@ -1,0 +1,25 @@
+<div class="container">
+
+  @if (this.videoLinkCollection[this.index]) {  
+  <h3>{{ videoLinkCollection[index].title }}</h3>
+  <p>Description: {{ videoLinkCollection[index].Description }}</p>
+  <p>Author: {{ videoLinkCollection[index].Author }}</p>
+  <div>
+    <span>Rate this book:</span>
+    <button *ngFor="let rating of ratingValues" (click)="rateBook(rating)">
+      {{ rating }}
+    </button>
+  </div>
+  <p>Current Rating: {{ avRate().toFixed(2) }}</p>}
+  <div class="video-data">
+    <p>Change Description</p>
+    <input (input)="processInputVideoNote($event)" type="text" placeholder="Edit Description">
+    <p>Change Description</p>
+    <input (input)="processInputVideoTitle($event)" type="text" placeholder="Edit Author">
+    
+  </div>
+<button (click)="processPrevClip()">Previous Clip</button>
+<button (click)="processNextClip()">Next Clip</button>
+
+<button (click)="processSaveVideoData()">Save Data</button>
+</div>
